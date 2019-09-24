@@ -1,2 +1,2 @@
 # COM404
-This is my Repo for programming unit Solent Uni
+Repo for programming unit Solent Uni
