@@ -1,8 +1,8 @@
-# set veriables
 count = 0
 
-cables = int(input("How many cabes should I remove?"))
-
+cables = int(input("How many cabes should I avoid?"))
 while count < cables:
-    print("menial task...cable removed") 
     count += 1
+    print("Avoiding... Done! " + str(count) + " live cables avoided" ) 
+    
+print("All live cables hve been avoided") 
