@@ -1,8 +1,8 @@
 # Function
 
 def identify():
-    identify = input("What do you see ahead")
-    if identify == "a large boulder":
+    item = input("What do you see ahead")
+    if item == "a large boulder":
         print("Its time to run!") 
     else:
         print("We will be fine....Yolo")
