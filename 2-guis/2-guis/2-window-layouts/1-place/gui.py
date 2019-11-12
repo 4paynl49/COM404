@@ -12,12 +12,13 @@ class Gui(Tk):
                    height=200, 
                    width=400)
 
+        self.add_canvas()
         self.add_heading_label()    
         self.add_sub_heading()        
         self.add_email_label()
         self.add_email_box()
         self.add_submit_button()
-        self.add_canvas()
+        
 
     def add_heading_label(self):
         self.heading_label = Label()
