@@ -18,7 +18,7 @@ class Gui(Tk):
     def __add_outer_frame(self):
         self.outer_frame = Frame()
         self.outer_frame.grid(row=0, column=0)
-        self.outer_frame.configure ( bg="#eee",
+        self.outer_frame.configure( bg="#eee",
                                      padx=10, 
                                      pady=10)
     
@@ -42,7 +42,12 @@ class Gui(Tk):
         
     def __add_buy_button(self):
         self.buy_button = Button()
-        self.buy_button.grid(row=3, column=0)
+        self.buy_button.grid(row=3, column=0, columnspan=2)
 
         self.buy_button.configure(font="Arial 11",text="Buy")
+        self.buy_button.bind("<ButtonRelease-1>", self.__buy_button_clicked)
+
+    def __buy_button_clicked(self, event):
+        self.messagebox.showinfo("Purchased!", "You have purchased the tickets!")
+  
         
