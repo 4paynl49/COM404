@@ -6,8 +6,8 @@ class Gui(Tk):
         super().__init__()
 
         # load resources
-        self.headphone_image = PhotoImage(file="C:/Uni Repo/COM404/2-guis/2-guis/2-swapping/Hair-Blow.gif")
-        self.headphone_name_image = PhotoImage(file="C:/Uni Repo/COM404/2-guis/2-guis/2-swapping/Hair-Blow-text.gif")
+        self.headphone_image = PhotoImage(file="C:/Uni Repo/COM404/2-guis/2-guis/4-images/2-swapping/Hair-Blow.gif")
+        self.headphone_name_image = PhotoImage(file="C:/Uni Repo/COM404/2-guis/2-guis/4-images/2-swapping/Hair-Blow-text.gif")
 
         # set window attributes
         self.title("Gui")
