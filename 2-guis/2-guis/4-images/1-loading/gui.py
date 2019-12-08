@@ -9,7 +9,8 @@ class Gui(Tk):
         self.ambulance_image = PhotoImage(file="C:/Uni Repo/COM404/2-guis/2-guis/4-images/1-loading/ambulance.gif")
         self.bike_image = PhotoImage(file="C:/Uni Repo/COM404/2-guis/2-guis/4-images/1-loading/bike.gif")
         self.plane_image = PhotoImage(file="C:/Uni Repo/COM404/2-guis/2-guis/4-images/1-loading/plane.gif")
-        
+        self.mail_image1 = PhotoImage(file="C:/Uni Repo/COM404/AE2 - Review TCA 1/Task A1/Mail.gif")
+
         # set window attributes
         self.title("Gui")
 
@@ -22,6 +23,7 @@ class Gui(Tk):
         self.add_ambulance_image_label()
         self.add_bike_image_label()
         self.add_plane_image_label()
+        self.add_mail_image_label()
 
     def add_heading_label(self):
         self.heading_label = Label()
@@ -49,6 +51,15 @@ class Gui(Tk):
         self.plane_image_label.configure(image=self.plane_image,
                                              height=60,
                                              width=60)
+
+    def add_mail_image_label(self):
+        self.mail_image = Label()
+        self.mail_image.grid(row=1, column=3, sticky=E)
+        self.mail_image.configure(image=self.mail_image1,
+                                             height=60,
+                                             width=60)
+
+                                             
 # Create an object of the Gui class when this module is executed
 if (__name__ == "__main__"):
     gui = Gui()
