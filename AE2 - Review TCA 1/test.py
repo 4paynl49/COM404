@@ -12,25 +12,28 @@ class Gui(Tk):
         self.configure(bg="#ccc",height=200,width=400,
                                  padx=10, pady=10)
 
-        self.__add_mail_image_label()
+        self.__add_outer_frame()
+        self.__add_sub_type_optionMenu()
+
+    def __add_outer_frame(self):
+        self.outer_frame = Frame()
+        self.outer_frame.grid(row=0, column=0)
+        self.outer_frame.configure(bg="#eee")
+
+    def __add_sub_type_optionMenu(self):
+
+        # dictionary with options
+        subPeriod = ["Weekly","Monthly","Yearly"]
         
-        
+        # set selected entry
+        selectPeriod = StringVar()
+        selectPeriod.set(subPeriod[0])
 
-    # load resources
-        self.mail_image = PhotoImage(file="C:/Uni Repo/COM404/AE2 - Review TCA 1/Task A1/Mail.gif")
-        
+        self.sub_type_optionMenu = OptionMenu(self.outer_frame, selectPeriod, *subPeriod)
+        self.sub_type_optionMenu.grid(row=3, column=0, padx=10, pady=10)
+        self.sub_type_optionMenu.configure(fg="#f00",borderwidth=2, width=35)
 
-
- # load defualt image
-    def __add_mail_image_label(self):
-        self.mail_image = Label()
-        self.mail_image.grid(row=3, column=0)
-        self.mail_image.configure(image=self.mail_image,
-                                                  height=60,
-                                                  width=60)
-
-  
-
+       
   
 # Create an object of the Gui class when this module is executed
 if (__name__ == "__main__"):

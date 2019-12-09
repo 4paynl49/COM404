@@ -26,7 +26,7 @@ class Gui(Tk):
         self.__add_email_lable()
         self.__add_email_entry()
         self.__add_sub_type_lable()
-        #self.__add_sub_type_optionMenu()
+        self.__add_sub_type_optionMenu()
         self.__add_subscribe_button()
         self.__add_mail_image_label()
 
@@ -66,8 +66,10 @@ class Gui(Tk):
 
         self.email_entry.bind("<KeyRelease>", self.__email_entry_input)
 
+    # Confirm that string entered in (email entry) is a vaild email with an image switch
     def __email_entry_input(self, event):
-        #if len(self.email_entry.get()) == 0:
+        ## use this is you just want (email entry) to have string entry.
+        #if len(self.email_entry.get()) == 0: 
         if self.validEmail():
             self.mail_image_label.configure(image=self.valid_image)
         else:
@@ -84,25 +86,24 @@ class Gui(Tk):
     # load a subscribe type
     def __add_sub_type_lable(self):
         self.sub_type_lable = Label(self.outer_frame)
-        self.sub_type_lable.grid(row=3, column=0, padx=10, pady=10)
+        self.sub_type_lable.grid(row=3, column=0, stick=W, padx=10, pady=10)
         self.sub_type_lable.configure(font="Arial 10",padx=10, pady=10,
                                       text="Type:")
 
-    # # create sub type drop down list 
-    # def __add_sub_type_optionMenu(self):
-    #     self.sub_type_optionMenu = OptionMenu(self.outer_frame,tkvar, *choices)
-    #     # self.sub_type_optionMenu.grid(row=3, column=0, padx=10, pady=10)
-    #     # self.sub_type_optionMenu(fg="#f00",borderwidth=2, width=35)
-    #     Label(self.outer_frame, text="Type").grid(row = 3, column = 0)
-    #     sub_type_optionMenu.grid(row = 3, column =0)
+    # create a Option Menu for subscription period
+    def __add_sub_type_optionMenu(self):
 
-    #     # Create a Tkinter variable
-    #     tkvar = StringVar(root)
+        # dictionary with options
+        subPeriod = ["Weekly","Monthly","Yearly"]
+        
+        # set selected entry
+        selectPeriod = StringVar()
+        selectPeriod.set(subPeriod[0])
 
-    #     # Dictionary with options
-    #     choices = { 'Weekly','Monthly','Yearly'}
-    #     tkvar.set('Weekly') # set the default option
-
+        self.sub_type_optionMenu = OptionMenu(self.outer_frame, selectPeriod, *subPeriod)
+        self.sub_type_optionMenu.grid(row=3, column=0, padx=10, pady=10)
+        self.sub_type_optionMenu.configure(borderwidth=2, width=30)
+        
     # create a subscribe button
     def __add_subscribe_button(self):
         self.subscribe_button = Button()
@@ -111,7 +112,16 @@ class Gui(Tk):
                                         text= "Subscribe")
 
         self.subscribe_button.bind("<ButtonRelease-1>", self.__subscribe_button_clicked)
-        
+
+    # Subscribe button action    
+    def __subscribe_button_clicked(self, event):
+        if self.validEmail():
+            messagebox.showinfo("Newsletter", "Subscribed!")
+
+        else: 
+            messagebox.showinfo("Newsletter", "Enter Valid email address please")
+
+    # Valiate email format   
     def validEmail(self):
         addressToVerify = self.email_entry.get()
         match = re.match('^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$', addressToVerify)
@@ -120,12 +130,7 @@ class Gui(Tk):
         else:
             return True
 
-    def __subscribe_button_clicked(self, event):
-        if self.validEmail():
-            messagebox.showinfo("Newsletter", "Subscribed!")
-
-        else: 
-            messagebox.showinfo("Newsletter", "Enter Valid email address please")
+    
             
 
 
