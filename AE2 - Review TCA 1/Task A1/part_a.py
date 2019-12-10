@@ -129,16 +129,7 @@ class Gui(Tk):
             return False
         else:
             return True
-
-    
-            
-
-
-  
-
-
-
-  
+ 
 # Create an object of the Gui class when this module is executed
 if (__name__ == "__main__"):
     gui = Gui()
