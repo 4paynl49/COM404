@@ -33,6 +33,9 @@ class Gui(Tk):
         self.sub_type_optionMenu.grid(row=3, column=0, padx=10, pady=10)
         self.sub_type_optionMenu.configure(fg="#f00",borderwidth=2, width=35)
 
+    # def __add_test():
+    #     print "value is", selectPeriod.get()
+
        
   
 # Create an object of the Gui class when this module is executed
